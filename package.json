@@ -1,0 +1,26 @@
+{
+  "name": "vite-plugin-airx",
+  "version": "0.1.0",
+  "type": "module",
+  "types": "./output/index.d.ts",
+  "exports": {
+    "default": [
+      "./output/index.js"
+    ]
+  },
+  "files": [
+    "output/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "peerDependencies": {
+    "vite": "^4.3.2"
+  },
+  "devDependencies": {
+    "typescript": "~5.0.0"
+  },
+  "author": "",
+  "license": "MIT"
+}
