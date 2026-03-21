@@ -84,37 +84,79 @@ airx-vite-plugin@0.2.0+
 
 ---
 
-## 6. 验证矩阵（待执行TASK-0006的产出）
+## 6. 验证矩阵（TASK-0006 产出）
 
-### 6.1 测试范围
+### 6.1 Vite 版本分层策略
 
-```
-Vite 5.x 验证
-└─ JSX注入正确性
-   ├─ __airx__.createElement 调用正确
-   ├─ __airx__.Fragment 支持
-   └─ esbuild.jsx='transform' 生效
+| 层级 | Vite 版本范围 | 验证方式 | 声明策略 |
+|------|-------------|---------|---------|
+| **稳定层 (Stable)** | Vite 5.x | CI 矩阵测试，自动验证 | peerDependency 明确声明 `^5.0.0` |
+| **候选层 (Candidate)** | Vite 6.x | 手动验证 + 示例构建 | package.json 注释说明，待官方验证 |
+| **实验层 (Experimental)** | Vite 7.x | 手动验证 + 主站观察 | 不声明，风险自担 |
 
-Vite 6.x 验证
-└─ JSX注入正确性
-   ├─ __airx__.createElement 调用正确
-   ├─ __airx__.Fragment 支持
-   └─ esbuild.jsx='transform' 生效
+> **决策**：在 `examples/minimal/` 完成 Vite 5/6/7 三个版本的手动验证后，再考虑将 6.x/7.x 纳入 peerDependency 声明。
 
-Vite 7.x 验证
-└─ JSX注入正确性
-   ├─ __airx__.createElement 调用正确
-   ├─ __airx__.Fragment 支持
-   └─ esbuild.jsx='transform' 生效
-```
+### 6.2 JSX 注入正确性验证点
 
-### 6.2 验证检查清单（待定义）
+每个 Vite 版本层需验证以下 5 个验证点：
 
-- [ ] npm run typecheck 通过
-- [ ] npm run lint 通过
-- [ ] npm test -- --run 通过
-- [ ] examples/ 所有示例可运行
-- [ ] 构建产物大小无显著变化
+| 验证点 | 验证内容 | 验证方式 |
+|--------|---------|---------|
+| `esbuild.jsx='transform'` | JSX 被 esbuild 转换为函数调用 | 检查编译产物中无原始 JSX 语法 |
+| `jsxFactory` | `__airx__.createElement` 调用正确 | `grep '__airx__.createElement' dist/*.js` |
+| `jsxFragment` | `__airx__.Fragment` 调用正确 | `grep '__airx__.Fragment' dist/*.js` |
+| `jsxInject` | `import * as __airx__` 正确注入到每个文件 | 检查编译产物头部有 airx import |
+| 多文件构建 | 多个 .tsx 文件都正确注入 | 检查所有输出文件 |
+
+### 6.3 最小示例覆盖范围
+
+示例路径：`examples/minimal/`
+
+**必须覆盖的场景（验证基线）**：
+
+| 场景 | 验证内容 | 重要性 |
+|------|---------|--------|
+| 基础 JSX 元素 | `<div>`, `<span>` 正确渲染 | 必须 |
+| JSX 表达式 | `{variable}`, `{a + b}` 正确插值 | 必须 |
+| JSX 子元素 | 嵌套标签 `<div><span>...</span></div>` | 必须 |
+| Fragment 使用 | `<>...</>` 语法正确翻译 | 必须 |
+| 函数组件 | `function Title() { return ... }` 正确调用 | 必须 |
+| TypeScript 类型 | 带 props 类型的组件正确编译 | 必须 |
+
+**不纳入当前验证基线（由其他任务覆盖）**：
+
+| 场景 | 覆盖任务 |
+|------|---------|
+| Signals 运行时集成 | TASK-0007 |
+| SSR 场景 | 未规划 |
+| JSX 插件冲突 | TASK-0003 |
+
+### 6.4 回归门禁
+
+| 门禁类型 | 检查项 | 执行命令 | 通过标准 |
+|---------|--------|---------|---------|
+| **构建门禁** | TypeScript 编译通过 | `npm run build` | 退出码 0 |
+| **构建门禁** | 类型声明文件存在 | `test -s output/index.d.ts` | 文件非空 |
+| **类型门禁** | 无类型错误 | `npx tsc --noEmit` | 退出码 0 |
+| **示例门禁** | 最小示例构建成功 | `cd examples/minimal && npm run build` | 构建成功 |
+| **示例门禁** | JSX 转换产物正确 | `grep '__airx__.createElement' examples/minimal/dist/*.js` | 有匹配 |
+| **示例门禁** | Fragment 转换正确 | `grep '__airx__.Fragment' examples/minimal/dist/*.js` | 有匹配 |
+
+### 6.5 门禁执行时机
+
+| 时机 | 触发条件 | 失败策略 |
+|------|---------|---------|
+| **Pre-commit** | git commit 前 | 阻塞提交 |
+| **CI/CD** | PR 和 main 分支 push | 构建失败阻止合并 |
+| **Pre-release** | npm publish 前 | 发布中断 |
+
+### 6.6 版本验证状态
+
+| Vite 版本 | 构建验证 | 运行验证 | 声明状态 |
+|----------|---------|---------|---------|
+| 5.x | ✅ 已验证（当前 peerDependency） | ✅ 已验证 | `peerDependencies.vite: ^5.0.0` |
+| 6.x | ⏳ 待手动验证 | ⏳ 待手动验证 | package.json 注释说明 |
+| 7.x | ⏳ 待手动验证 | ⏳ 待手动验证（主站已在用） | 不声明 |
 
 ---
 
