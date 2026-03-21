@@ -102,10 +102,10 @@
     {
       "id": "TASK-0006",
       "title": "定义插件可用性与兼容验证矩阵",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "owner": "GitHub Copilot",
-      "summary": "仅做规划与决策。明确 vite 版本分层验证方案、jsx 注入正确性验证点、最小示例覆盖范围和回归门禁。",
-      "updatedAt": "2026-03-21T16:13:28.277Z",
+      "summary": "已完成插件可用性与兼容验证矩阵定义。明确 Vite 版本分层策略（Stable/Candidate/Experimental）、JSX 注入正确性验证点 5 个、最小示例覆盖范围 6 个场景、回归门禁 6 类及执行时机。验证矩阵落地于 vite-support-policy.md 第 6 节。",
+      "updatedAt": "2026-03-21T16:16:27.944Z",
       "links": [
         "home/yinxulai/Project/airxjs/vite-plugin/source/index.ts",
         "home/yinxulai/Project/airxjs/vite-plugin/.projitive/designs/release-verification-baseline.md"
@@ -118,7 +118,7 @@
         "confidence": 0.8,
         "estimatedCompletion": "2026-03-23"
       },
-      "recordVersion": 3
+      "recordVersion": 4
     },
     {
       "id": "TASK-0007",
@@ -161,7 +161,7 @@
     }
   ],
   "meta": {
-    "tasks_version": 26,
+    "tasks_version": 27,
     "roadmaps_version": 3,
     "store_schema_version": 3
   },
@@ -169,9 +169,9 @@
     "tasks_markdown": {
       "name": "tasks_markdown",
       "dirty": false,
-      "lastSourceVersion": 26,
-      "lastBuiltAt": "2026-03-21T16:13:28.282Z",
-      "recordVersion": 81
+      "lastSourceVersion": 27,
+      "lastBuiltAt": "2026-03-21T16:16:27.949Z",
+      "recordVersion": 84
     },
     "roadmaps_markdown": {
       "name": "roadmaps_markdown",
