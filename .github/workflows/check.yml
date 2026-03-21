@@ -1,18 +1,71 @@
-name: Code check
+name: Code Check
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main", "dev"]
   pull_request:
-    branches: [ "*" ]
+    branches: ["*"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "20"
+          cache: "npm"
+
       - run: npm ci
       - run: npm run build
+
+      - name: Verify output files
+        run: |
+          test -f output/index.js && echo "index.js OK"
+          test -s output/index.d.ts && echo "index.d.ts OK"
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+      - run: npx tsc --noEmit
+
+  example-test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install and build plugin
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install and build example
+        run: |
+          cd examples/minimal
+          # Use local built plugin via file: protocol
+          npm install
+          # Replace workspace:* with file: for local testing
+          sed -i 's/"vite-plugin-airx": "workspace:\*"/"vite-plugin-airx": "file:.."/' package.json
+          npm install
+          npm run build
+
+      - name: Verify JSX transformation
+        run: |
+          ls examples/minimal/dist/
+          # Verify __airx__.createElement is in output
+          grep -l '__airx__' examples/minimal/dist/assets/*.js && echo "JSX injection verified"

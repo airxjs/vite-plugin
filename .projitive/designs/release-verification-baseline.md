@@ -131,9 +131,11 @@ airx.createApp(airx.createElement(App)).mount(
 | npm publish dry-run | 文件列表正确 |
 | Git tag | 对应版本有 tag |
 
-## 6. GitHub Actions 工作流增强
+## 6. GitHub Actions 工作流
 
-### 6.1 建议的 check.yml
+> ⚠️ 以下为已实现的 `.github/workflows/check.yml` 的参考说明，实际配置见仓库文件。
+
+### 6.1 check.yml 已实现
 
 ```yaml
 name: Code Check
@@ -236,12 +238,12 @@ export default defineConfig({
 
 ## 8. 待办事项
 
-- [ ] 创建 `examples/minimal/` 最小示例
+- [x] 创建 `examples/minimal/` 最小示例
 - [ ] 验证 Vite 5.x 下示例可构建运行
 - [ ] 验证 Vite 6.x 下示例可构建运行
 - [ ] 验证 Vite 7.x 下示例可构建运行
 - [ ] 增强 README 说明
-- [ ] 补充 GitHub Actions 示例验证 job
+- [x] 补充 GitHub Actions 示例验证 job (`.github/workflows/check.yml`)
 
 ## 9. 相关文档
 
