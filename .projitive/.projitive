@@ -1,0 +1,172 @@
+{
+  "schema": "projitive-json-store",
+  "tasks": [
+    {
+      "id": "TASK-0001",
+      "title": "Bootstrap governance workspace",
+      "status": "DONE",
+      "owner": "GitHub Copilot",
+      "summary": "初始化 vite-plugin-airx 项目治理骨架，并补充项目定位、技术栈和治理重点说明。",
+      "updatedAt": "2026-03-21T13:50:22.753Z",
+      "links": [
+        ".projitive/README.md",
+        ".projitive/tasks.md",
+        ".projitive/roadmap.md"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0001"
+      ],
+      "recordVersion": 3
+    },
+    {
+      "id": "TASK-0002",
+      "title": "梳理 Vite 主版本兼容策略",
+      "status": "DONE",
+      "owner": "GitHub Copilot",
+      "summary": "完成 vite-plugin-airx 的 Vite 主版本支持范围、风险边界与验证建议梳理。",
+      "updatedAt": "2026-03-21T14:00:06.495Z",
+      "links": [
+        "source/index.ts",
+        ".projitive/designs/vite-support-policy.md",
+        "home/yinxulai/Project/yinxulai.github.io/package.json"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0001"
+      ],
+      "recordVersion": 3
+    },
+    {
+      "id": "TASK-0003",
+      "title": "建立插件发布与示例验证基线",
+      "status": "TODO",
+      "owner": "GitHub Copilot",
+      "summary": "补充示例、构建验证和发布前检查，降低接入风险。",
+      "updatedAt": "2026-03-21T13:50:05.893Z",
+      "links": [
+        "package.json",
+        "README.md",
+        "source/"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0001"
+      ],
+      "recordVersion": 1
+    },
+    {
+      "id": "TASK-0004",
+      "title": "完善插件使用文档与演进说明",
+      "status": "TODO",
+      "owner": "GitHub Copilot",
+      "summary": "为 Airx + Vite 的接入方式、约束和后续演进路径补齐文档。",
+      "updatedAt": "2026-03-21T13:50:05.893Z",
+      "links": [
+        "README.md",
+        ".projitive/README.md"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0001"
+      ],
+      "recordVersion": 1
+    },
+    {
+      "id": "TASK-0005",
+      "title": "建立 Vite 插件版本支持与升级路线",
+      "status": "TODO",
+      "owner": "yinxulai",
+      "summary": "仅做规划与决策。对齐 Vite/Node/TS 目标范围，明确兼容声明策略与验证矩阵，保证插件不拖慢 airx 迭代。",
+      "updatedAt": "2026-03-21T14:20:34.128Z",
+      "links": [
+        "home/yinxulai/Project/airxjs/vite-plugin/package.json",
+        "home/yinxulai/Project/airxjs/vite-plugin/.projitive/designs/vite-support-policy.md"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0002"
+      ],
+      "subState": {
+        "phase": "design",
+        "confidence": 0.88
+      },
+      "recordVersion": 1
+    },
+    {
+      "id": "TASK-0006",
+      "title": "定义插件可用性与兼容验证矩阵",
+      "status": "TODO",
+      "owner": "yinxulai",
+      "summary": "仅做规划与决策。明确 vite 版本分层验证方案、jsx 注入正确性验证点、最小示例覆盖范围和回归门禁。",
+      "updatedAt": "2026-03-21T14:20:51.095Z",
+      "links": [
+        "home/yinxulai/Project/airxjs/vite-plugin/source/index.ts",
+        "home/yinxulai/Project/airxjs/vite-plugin/.projitive/designs/release-verification-baseline.md"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0002"
+      ],
+      "subState": {
+        "phase": "design",
+        "confidence": 0.88
+      },
+      "recordVersion": 1
+    },
+    {
+      "id": "TASK-0007",
+      "title": "定义插件对 Signals 运行时的集成验证策略",
+      "status": "TODO",
+      "owner": "yinxulai",
+      "summary": "仅做规划与决策。明确 JSX 注入与 runtime 互操作验证点，确保插件升级不会引入 signals 相关编译链偏差。",
+      "updatedAt": "2026-03-21T14:21:07.828Z",
+      "links": [
+        "home/yinxulai/Project/airxjs/vite-plugin/source/index.ts",
+        "https://github.com/proposal-signals/signal-polyfill"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0002"
+      ],
+      "subState": {
+        "phase": "design",
+        "confidence": 0.8
+      },
+      "recordVersion": 1
+    }
+  ],
+  "roadmaps": [
+    {
+      "id": "ROADMAP-0001",
+      "title": "建立 Vite 插件兼容性与发布治理基线",
+      "status": "active",
+      "time": "2026-Q2",
+      "updatedAt": "2026-03-21T13:49:26.925Z",
+      "recordVersion": 2
+    },
+    {
+      "id": "ROADMAP-0002",
+      "title": "Vite 插件基建升级与验证路线",
+      "status": "active",
+      "time": "2026-Q2~Q3",
+      "updatedAt": "2026-03-21T14:20:13.674Z",
+      "recordVersion": 1
+    }
+  ],
+  "meta": {
+    "tasks_version": 11,
+    "roadmaps_version": 3,
+    "store_schema_version": 3
+  },
+  "view_state": {
+    "tasks_markdown": {
+      "name": "tasks_markdown",
+      "dirty": false,
+      "lastSourceVersion": 11,
+      "lastBuiltAt": "2026-03-21T14:22:29.375Z",
+      "recordVersion": 34
+    },
+    "roadmaps_markdown": {
+      "name": "roadmaps_markdown",
+      "dirty": false,
+      "lastSourceVersion": 3,
+      "lastBuiltAt": "2026-03-21T14:22:29.378Z",
+      "recordVersion": 8
+    }
+  },
+  "migration_history": []
+}
