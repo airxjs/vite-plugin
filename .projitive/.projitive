@@ -81,10 +81,10 @@
     {
       "id": "TASK-0005",
       "title": "建立 Vite 插件版本支持与升级路线",
-      "status": "TODO",
+      "status": "DONE",
       "owner": "GitHub Copilot",
       "summary": "对齐 Vite/Node/TS 目标范围，明确兼容声明策略与验证矩阵，保证插件不拖慢 airx 迭代。\n\n📋 产出物：\n1. Version Support Matrix（版本支持矩阵）\n2. Compatibility Declaration（兼容性声明）\n3. Breaking Change Policy（毁蠠性变更策略）\n4. Verification Checklist（验证检查清单）",
-      "updatedAt": "2026-03-21T15:15:48.710Z",
+      "updatedAt": "2026-03-21T15:25:35.173Z",
       "links": [
         "home/yinxulai/Project/airxjs/vite-plugin/package.json",
         "home/yinxulai/Project/airxjs/vite-plugin/.projitive/designs/vite-support-policy.md"
@@ -93,11 +93,11 @@
         "ROADMAP-0002"
       ],
       "subState": {
-        "phase": "discovery",
-        "confidence": 0.85,
-        "estimatedCompletion": "2026-03-22"
+        "phase": "implementation",
+        "confidence": 1,
+        "estimatedCompletion": "2026-03-21"
       },
-      "recordVersion": 2
+      "recordVersion": 4
     },
     {
       "id": "TASK-0006",
@@ -161,7 +161,7 @@
     }
   ],
   "meta": {
-    "tasks_version": 16,
+    "tasks_version": 18,
     "roadmaps_version": 3,
     "store_schema_version": 3
   },
@@ -169,9 +169,9 @@
     "tasks_markdown": {
       "name": "tasks_markdown",
       "dirty": false,
-      "lastSourceVersion": 16,
-      "lastBuiltAt": "2026-03-21T15:16:03.298Z",
-      "recordVersion": 50
+      "lastSourceVersion": 18,
+      "lastBuiltAt": "2026-03-21T15:25:35.178Z",
+      "recordVersion": 57
     },
     "roadmaps_markdown": {
       "name": "roadmaps_markdown",
