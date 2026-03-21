@@ -63,7 +63,7 @@
       "status": "DONE",
       "owner": "GitHub Copilot",
       "summary": "已完成插件使用文档与演进说明，包含快速接入指南、配置参考、最小示例、限制说明和版本演进路线（133 行文档）。",
-      "updatedAt": "2026-03-21T16:06:13.480Z",
+      "updatedAt": "2026-03-21T16:07:15.150Z",
       "links": [
         "README.md",
         "home/yinxulai/Project/airxjs/vite-plugin/.projitive/designs/plugin-integration-guide.md"
@@ -76,7 +76,7 @@
         "confidence": 1,
         "estimatedCompletion": "2026-03-24"
       },
-      "recordVersion": 4
+      "recordVersion": 5
     },
     {
       "id": "TASK-0005",
@@ -161,7 +161,7 @@
     }
   ],
   "meta": {
-    "tasks_version": 24,
+    "tasks_version": 25,
     "roadmaps_version": 3,
     "store_schema_version": 3
   },
@@ -169,9 +169,9 @@
     "tasks_markdown": {
       "name": "tasks_markdown",
       "dirty": false,
-      "lastSourceVersion": 24,
-      "lastBuiltAt": "2026-03-21T16:06:13.495Z",
-      "recordVersion": 75
+      "lastSourceVersion": 25,
+      "lastBuiltAt": "2026-03-21T16:07:15.155Z",
+      "recordVersion": 78
     },
     "roadmaps_markdown": {
       "name": "roadmaps_markdown",
