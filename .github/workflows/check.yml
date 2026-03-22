@@ -57,10 +57,9 @@ jobs:
       - name: Install and build example
         run: |
           cd examples/minimal
-          # Use local built plugin via file: protocol
-          npm install
           # Replace workspace:* with file: for local testing
           sed -i 's/"vite-plugin-airx": "workspace:\*"/"vite-plugin-airx": "file:.."/' package.json
+          # Use local built plugin via file: protocol
           npm install
           npm run build
 
