@@ -58,7 +58,7 @@ jobs:
         run: |
           cd examples/minimal
           # Replace workspace:* with file: for local testing
-          sed -i 's/"vite-plugin-airx": "workspace:\*"/"vite-plugin-airx": "file:.."/' package.json
+          sed -i 's/"vite-plugin-airx": "workspace:\*"/"vite-plugin-airx": "file:..\/.."/' package.json
           # Use local built plugin via file: protocol
           npm install
           npm run build
