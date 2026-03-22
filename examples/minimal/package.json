@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "airx": "^0.3.1"
+    "airx": "^0.7.1"
   },
   "devDependencies": {
     "vite": "^5.0.0",
-    "vite-plugin-airx": "workspace:*",
+    "vite-plugin-airx": "file:../..",
     "typescript": "^5.0.0"
   }
 }

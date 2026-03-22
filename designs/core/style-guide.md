@@ -55,7 +55,11 @@ export default VitePluginAirx
   "type": "module",
   "types": "./output/index.d.ts",
   "exports": {
-    "default": ["./output/index.js"]
+    ".": {
+      "default": "./output/index.js",
+      "import": "./output/index.js",
+      "types": "./output/index.d.ts"
+    }
   },
   "files": ["output/*"],
   "scripts": {

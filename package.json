@@ -1,12 +1,14 @@
 {
   "name": "vite-plugin-airx",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "type": "module",
   "types": "./output/index.d.ts",
   "exports": {
-    "default": [
-      "./output/index.js"
-    ]
+    ".": {
+      "types": "./output/index.d.ts",
+      "import": "./output/index.js",
+      "default": "./output/index.js"
+    }
   },
   "files": [
     "output/*"
@@ -17,7 +19,8 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "vite": "^5.0.0 || ^6.0.0 || ^7.0.0"
+    "airx": "^0.7.1",
+    "vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
