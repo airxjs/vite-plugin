@@ -22,6 +22,10 @@
   "devDependencies": {
     "typescript": "^5.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airxjs/vite-plugin"
+  },
   "author": "",
   "license": "MIT"
 }
