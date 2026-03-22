@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-airx",
-  "version": "0.3.0",
+  "version": "0.7.0",
   "type": "module",
   "types": "./output/index.d.ts",
   "exports": {
@@ -21,6 +21,10 @@
   },
   "devDependencies": {
     "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airxjs/vite-plugin"
   },
   "author": "",
   "license": "MIT"
