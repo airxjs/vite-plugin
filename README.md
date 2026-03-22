@@ -1,6 +1,7 @@
 # vite-plugin-airx
 
 Vite 插件，用于将 Airx JSX 转换接入 Vite 项目。
+默认使用 automatic JSX runtime（`airx/jsx-runtime`）。
 
 ## 安装
 
@@ -43,22 +44,38 @@ airx.createApp(airx.createElement(App)).mount(
 
 ## 工作原理
 
-插件通过 Vite `config` 钩子注入以下 esbuild 配置：
+默认模式（automatic）通过 Vite `config` 钩子注入以下 esbuild 配置：
 
 | 配置项 | 值 | 说明 |
 |--------|-----|------|
-| `jsx` | `'transform'` | 启用 JSX 转换 |
-| `jsxFactory` | `'__airx__.createElement'` | JSX 元素工厂函数 |
-| `jsxFragment` | `'__airx__.Fragment'` | Fragment 工厂函数 |
-| `jsxInject` | `import * as __airx__ from 'airx'` | 每个文件开头注入 airx import |
+| `jsx` | `'automatic'` | 启用自动 JSX 运行时 |
+| `jsxImportSource` | `'airx'` | 指向 `airx/jsx-runtime` |
+
+如果你需要兼容旧项目，也可以切回 classic 模式：
+
+```typescript
+import { defineConfig } from 'vite'
+import airx from 'vite-plugin-airx'
+
+export default defineConfig({
+  plugins: [
+    airx({
+      runtime: 'classic'
+    })
+  ]
+})
+```
 
 ## Vite 版本支持
 
 | 版本 | 支持状态 | 说明 |
 |------|---------|------|
 | Vite 5.x | ✅ 官方支持 | peerDependency 明确声明 |
-| Vite 6.x | ⚠️ 待验证 | 需手动验证后方可声明 |
-| Vite 7.x | ⚠️ 待验证 | 主站已在用，需配合验证 |
+| Vite 6.x | ✅ 官方支持 | peerDependency 明确声明 |
+| Vite 7.x | ✅ 官方支持 | peerDependency 明确声明 |
+| Vite 8.x | ✅ 官方支持 | 兼容 Rolldown 构建链路，JSX 配置仍通过 `esbuild` 生效 |
+
+> 说明：Vite 8 使用 Rolldown 作为内部构建工具，但 JSX 转换配置仍通过 Vite 的 `esbuild` 选项统一接入。
 
 ## 示例
 
@@ -66,19 +83,18 @@ airx.createApp(airx.createElement(App)).mount(
 
 ## 配置参考
 
-### 当前版本
-
-`vite-plugin-airx` 当前版本（v0.2.0）为零配置设计，无需任何配置选项即可使用。
-
-### 未来版本配置项（计划中）
-
-未来版本可能支持以下配置项：
+### 可选配置
 
 | 配置项 | 类型 | 默认值 | 说明 |
 |--------|------|--------|------|
-| `jsxFactory` | `string` | `'__airx__.createElement'` | JSX 工厂函数名 |
-| `jsxFragment` | `string` | `'__airx__.Fragment'` | Fragment 函数名 |
-| `importSource` | `string` | `'airx'` | JSX 运行时导入路径 |
+| `runtime` | `'automatic' \| 'classic'` | `'automatic'` | 选择 JSX 运行时模式 |
+| `importSource` | `string` | `'airx'` | automatic 模式下的导入源 |
+
+classic 模式使用固定注入：
+
+- `jsxFactory`: `__airx__.createElement`
+- `jsxFragment`: `__airx__.Fragment`
+- `jsxInject`: `import * as __airx__ from 'airx'`
 
 ## 演进路线
 
