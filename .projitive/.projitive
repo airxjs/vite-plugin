@@ -156,6 +156,51 @@
         "ROADMAP-0002"
       ],
       "recordVersion": 2
+    },
+    {
+      "id": "TASK-0009",
+      "title": "Initialize project architecture document",
+      "status": "TODO",
+      "owner": "unassigned",
+      "summary": "Establish system context, boundaries, modules, and integration flows in designs/core/architecture.md.",
+      "updatedAt": "2026-03-28T02:03:56.918Z",
+      "links": [
+        "designs/core/architecture.md"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0001"
+      ],
+      "recordVersion": 1
+    },
+    {
+      "id": "TASK-0010",
+      "title": "Initialize code style document",
+      "status": "TODO",
+      "owner": "unassigned",
+      "summary": "Capture naming, structure, testing, and review conventions in designs/core/code-style.md.",
+      "updatedAt": "2026-03-28T02:03:56.919Z",
+      "links": [
+        "designs/core/code-style.md"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0001"
+      ],
+      "recordVersion": 1
+    },
+    {
+      "id": "TASK-0011",
+      "title": "Initialize UI style document",
+      "status": "TODO",
+      "owner": "unassigned",
+      "summary": "Capture visual language, tokens, accessibility, and interaction rules in designs/core/ui-style.md.",
+      "updatedAt": "2026-03-28T02:03:56.920Z",
+      "links": [
+        "designs/core/ui-style.md"
+      ],
+      "roadmapRefs": [
+        "ROADMAP-0001"
+      ],
+      "recordVersion": 1
     }
   ],
   "roadmaps": [
@@ -177,7 +222,7 @@
     }
   ],
   "meta": {
-    "tasks_version": 29,
+    "tasks_version": 32,
     "roadmaps_version": 3,
     "store_schema_version": 3
   },
@@ -185,9 +230,9 @@
     "tasks_markdown": {
       "name": "tasks_markdown",
       "dirty": false,
-      "lastSourceVersion": 29,
-      "lastBuiltAt": "2026-03-21T17:58:04.030Z",
-      "recordVersion": 90
+      "lastSourceVersion": 32,
+      "lastBuiltAt": "2026-03-28T02:04:05.988Z",
+      "recordVersion": 94
     },
     "roadmaps_markdown": {
       "name": "roadmaps_markdown",
