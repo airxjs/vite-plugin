@@ -4,32 +4,32 @@
     {
       "id": "TASK-0001",
       "title": "Initialize project architecture document",
-      "status": "IN_PROGRESS",
+      "status": "DONE",
       "owner": "unassigned",
       "summary": "Establish system context, boundaries, modules, and integration flows in designs/core/architecture.md.",
-      "updatedAt": "2026-03-29T10:02:48.384Z",
+      "updatedAt": "2026-03-29T10:03:09.401Z",
       "links": [
         "designs/core/architecture.md"
       ],
       "roadmapRefs": [
         "ROADMAP-0001"
       ],
-      "recordVersion": 2
+      "recordVersion": 3
     },
     {
       "id": "TASK-0002",
       "title": "Initialize code style document",
-      "status": "TODO",
+      "status": "DONE",
       "owner": "unassigned",
       "summary": "Capture naming, structure, testing, and review conventions in designs/core/code-style.md.",
-      "updatedAt": "2026-03-29T08:53:38.136Z",
+      "updatedAt": "2026-03-29T11:22:13.799Z",
       "links": [
         "designs/core/code-style.md"
       ],
       "roadmapRefs": [
         "ROADMAP-0001"
       ],
-      "recordVersion": 1
+      "recordVersion": 3
     },
     {
       "id": "TASK-0003",
@@ -58,7 +58,7 @@
     }
   ],
   "meta": {
-    "tasks_version": 41,
+    "tasks_version": 44,
     "roadmaps_version": 4,
     "store_schema_version": 3
   },
@@ -66,9 +66,9 @@
     "tasks_markdown": {
       "name": "tasks_markdown",
       "dirty": false,
-      "lastSourceVersion": 41,
-      "lastBuiltAt": "2026-03-29T10:02:48.389Z",
-      "recordVersion": 120
+      "lastSourceVersion": 44,
+      "lastBuiltAt": "2026-03-29T11:22:13.803Z",
+      "recordVersion": 129
     },
     "roadmaps_markdown": {
       "name": "roadmaps_markdown",
