@@ -33,7 +33,7 @@
 | 维度 | 当前声明 |
 | --- | --- |
 | 插件版本 | `0.2.0` |
-| Vite 范围 | `^5.0.0` |
+| Vite 范围 | `^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0` |
 | Node.js 范围 | `>=14.0.0` |
 | TypeScript | `>=4.5.0` |
 | Airx 注入约定 | `__airx__.Fragment`, `__airx__.createElement` |
@@ -150,13 +150,21 @@ airx-vite-plugin@0.2.0+
 | **CI/CD** | PR 和 main 分支 push | 构建失败阻止合并 |
 | **Pre-release** | npm publish 前 | 发布中断 |
 
-### 6.6 版本验证状态
+### 6.6 版本验证状态（更新：2026-04-08）
 
-| Vite 版本 | 构建验证 | 运行验证 | 声明状态 |
-|----------|---------|---------|---------|
-| 5.x | ✅ 已验证（当前 peerDependency） | ✅ 已验证 | `peerDependencies.vite: ^5.0.0` |
-| 6.x | ⏳ 待手动验证 | ⏳ 待手动验证 | package.json 注释说明 |
-| 7.x | ⏳ 待手动验证 | ⏳ 待手动验证（主站已在用） | 不声明 |
+| Vite 版本 | 构建验证 | JSX 转换验证 | 声明状态 | 备注 |
+|----------|---------|-------------|---------|------|
+| 5.x | ✅ 已验证 | ✅ `A()` createElement 调用正确 | `peerDependencies.vite: ^5.0.0` | Baseline |
+| 6.x | ⏳ 未手动验证 | ⏳ 未验证 | package.json 注释说明 | 预计兼容（无Breaking） |
+| 7.x | ✅ 已验证 | ✅ `A()` createElement 调用正确，`Se` Fragment 正确 | `peerDependencies.vite: ^5.x~8.x` | 完整验证 2026-04-08 |
+| 8.x | ✅ 已验证（⚠️ deprecation warning） | ✅ `A()` createElement 调用正确 | `peerDependencies.vite: ^5.x~8.x` | `config.esbuild` 已弃用，建议跟踪 oxc 迁移 |
+
+**验证方法**：在 `examples/minimal/` 临时切换 Vite 版本（5→7→8），执行 `npm run build`，检查输出中 JSX 是否正确转换为 `A()` 函数调用。
+
+**Vite 8.x 警告**：
+> `esbuild` option was specified by "airx" plugin. This option is deprecated, please use `oxc` instead.
+
+当前不影响功能，但未来 Vite 大版本可能完全移除 esbuild 配置支持。需跟踪 [vite-plugin-oxc](https://github.com/vitejs/vite/discussions/18789) 进展，考虑迁移到 oxc 配置方式。
 
 ---
 
@@ -210,7 +218,7 @@ export default {
 | --- | --- | --- |
 | 5.x | peer dependency 明确声明 | 官方支持目标 |
 | 6.x | 无声明，无验证记录 | 待验证 |
-| 7.x | 主站已在用，但未通过本插件验证 | 待验证，不能直接宣称支持 |
+| 7.x | ✅ 已验证（2026-04-08） | 完整验证通过 |
 
 ## 5. 风险边界
 
