@@ -212,6 +212,19 @@
       "links": [],
       "roadmapRefs": [],
       "recordVersion": 3
+    },
+    {
+      "id": "TASK-0013",
+      "title": "验证 Vite 7.x/8.x 兼容性并更新支持策略",
+      "status": "TODO",
+      "owner": "",
+      "summary": "vite-plugin-airx 的 package.json 已声明 peerDependency 支持 Vite 5.x~8.x，但需要实际验证。任务：1) 在 examples/minimal 中用 Vite 7.x 和 8.x 分别构建测试 2) 检查 Rolldown 构建链路对 JSX 配置的影响 3) 更新 designs/vite-support-policy.md 支持矩阵 4) 如有问题，修复兼容性并更新版本范围",
+      "updatedAt": "2026-04-08T11:13:34.439Z",
+      "links": [],
+      "roadmapRefs": [
+        "ROADMAP-0002"
+      ],
+      "recordVersion": 1
     }
   ],
   "roadmaps": [
@@ -233,7 +246,7 @@
     }
   ],
   "meta": {
-    "tasks_version": 42,
+    "tasks_version": 43,
     "roadmaps_version": 3,
     "store_schema_version": 3
   },
@@ -241,9 +254,9 @@
     "tasks_markdown": {
       "name": "tasks_markdown",
       "dirty": false,
-      "lastSourceVersion": 42,
-      "lastBuiltAt": "2026-03-30T13:11:37.420Z",
-      "recordVersion": 124
+      "lastSourceVersion": 43,
+      "lastBuiltAt": "2026-04-08T11:13:34.444Z",
+      "recordVersion": 127
     },
     "roadmaps_markdown": {
       "name": "roadmaps_markdown",
