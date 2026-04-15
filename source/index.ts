@@ -1,4 +1,4 @@
-import { UserConfig } from 'vite'
+import { type Plugin, type UserConfig } from 'vite'
 
 export interface AirxPluginOptions {
   /**
@@ -31,7 +31,7 @@ export interface AirxPluginOptions {
  *   plugins: [airx()]
  * })
  */
-export function VitePluginAirx(options: AirxPluginOptions = {}) {
+export function VitePluginAirx(options: AirxPluginOptions = {}): Plugin {
   const runtime = options.runtime ?? 'automatic'
   const importSource = options.importSource ?? 'airx'
 
