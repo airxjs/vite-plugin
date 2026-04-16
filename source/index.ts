@@ -46,14 +46,14 @@ export function VitePluginAirx(options: AirxPluginOptions = {}): Plugin {
       const nextEsbuild = runtime === 'automatic'
         ? {
           ...currentEsbuild,
-          jsx: 'automatic',
+          jsx: 'automatic' as const,
           jsxImportSource: importSource
         }
         : {
           ...currentEsbuild,
-          jsx: 'transform',
-          jsxFragment: '__airx__.Fragment',
-          jsxFactory: '__airx__.createElement',
+          jsx: 'transform' as const,
+          jsxFragment: '__airx__.Fragment' as const,
+          jsxFactory: '__airx__.createElement' as const,
           jsxInject: "import * as __airx__ from 'airx'"
         }
 
