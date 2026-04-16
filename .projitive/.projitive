@@ -231,23 +231,23 @@
     {
       "id": "ROADMAP-0001",
       "title": "建立 Vite 插件兼容性与发布治理基线",
-      "status": "active",
+      "status": "done",
       "time": "2026-Q2",
-      "updatedAt": "2026-03-21T13:49:26.925Z",
-      "recordVersion": 2
+      "updatedAt": "2026-04-16T22:44:53.340Z",
+      "recordVersion": 3
     },
     {
       "id": "ROADMAP-0002",
       "title": "Vite 插件基建升级与验证路线",
-      "status": "active",
+      "status": "done",
       "time": "2026-Q2~Q3",
-      "updatedAt": "2026-03-21T14:20:13.674Z",
-      "recordVersion": 1
+      "updatedAt": "2026-04-16T22:44:53.218Z",
+      "recordVersion": 2
     }
   ],
   "meta": {
     "tasks_version": 45,
-    "roadmaps_version": 3,
+    "roadmaps_version": 5,
     "store_schema_version": 3
   },
   "view_state": {
@@ -261,9 +261,9 @@
     "roadmaps_markdown": {
       "name": "roadmaps_markdown",
       "dirty": false,
-      "lastSourceVersion": 3,
-      "lastBuiltAt": "2026-03-21T14:22:29.378Z",
-      "recordVersion": 8
+      "lastSourceVersion": 5,
+      "lastBuiltAt": "2026-04-16T22:44:53.345Z",
+      "recordVersion": 12
     }
   },
   "migration_history": []
